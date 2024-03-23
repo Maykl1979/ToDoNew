@@ -20,12 +20,14 @@ namespace ToDoNew
         public FormTack()
         {
             InitializeComponent();
-            for (int i = 1; i < 11; i++)
-            {
-                flowLayoutPanel1.Controls.Add(new CurrentTask("Задача" + i.ToString()));
-
-            }
             taskDao = new TaskDataBase();
+            TaskEntity taskEntity = new TaskEntity();
+            taskEntity.user_id = AuthUser.Id;
+            List<TaskEntity> tasks = taskDao.FindTask(taskEntity);
+            foreach (TaskEntity taskNew in tasks)
+            {
+                flowLayoutPanel1.Controls.Add(new CurrentTask(taskNew.id, taskNew.name, taskNew.status, taskNew.TimeStart, taskNew.TimeStop));
+            }
         }
 
 
@@ -41,7 +43,23 @@ namespace ToDoNew
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            TaskEntity Task = new TaskEntity();
+            TaskEntity task = new TaskEntity();
+            task.user_id = AuthUser.Id;
+            task.name = AuthUser.Name;
+            task.status = TaskName.Text;
+            task.TimeStart = TimeStart.Value;
+            task.TimeStop = TimeEnd.Value;
+
+            try
+            {
+                taskDao.SeveTask(task);
+                flowLayoutPanel1.Controls.Add(new CurrentTask(task.id, task.name, task.status, task.TimeStart, task.TimeStop));
+                MessageBox.Show("ОК");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message); 
+            }
         }
     }
 }

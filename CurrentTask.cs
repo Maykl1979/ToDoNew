@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,20 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToDoNew.dao.abstracts;
+using ToDoNew.dao.impl;
 
 namespace ToDoNew
 {
     public partial class CurrentTask : UserControl
     {
-        public CurrentTask(string text)
+        private long Id { get; set; }
+        private ITaskDao taskDao;
+        public CurrentTask(long id, string name, string status, DateTime timeStart, DateTime timeStop)
         {
             InitializeComponent();
-            TaskName.Text = text;
+            taskDao = new TaskDataBase();
         }
                 
-        private void CurrentTask_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(TaskName.Text);
-        }
+      
     }
 }

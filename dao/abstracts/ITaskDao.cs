@@ -10,7 +10,7 @@ namespace ToDoNew.dao.abstracts
     interface ITaskDao
     {
         void SeveTask(TaskEntity task);
-        TaskEntity FindTask(string description);
+        List<TaskEntity> FindTask(TaskEntity task);
         TaskEntity UpdateTaskr(TaskEntity task);
         void DeliteTask(TaskEntity task);
     }
