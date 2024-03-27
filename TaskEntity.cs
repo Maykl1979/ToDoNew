@@ -46,7 +46,7 @@ namespace ToDoNew
             TaskEntity task = new TaskEntity();
             task.user_id = AuthUser.Id;
             task.name = TaskName.Text;
-            task.status = Convert.ToInt64(Status.Text);
+            task.status = Status.Text;
             task.TimeStart = TimeStart.Value;
             task.TimeStop = TimeEnd.Value;
 
