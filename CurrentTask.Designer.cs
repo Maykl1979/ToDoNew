@@ -48,7 +48,7 @@
             Controls.Add(TaskName);
             Name = "CurrentTask";
             Size = new Size(171, 95);
-            Click += CurrentTask_Click;
+            //Click += CurrentTask_Click;
             ResumeLayout(false);
             PerformLayout();
         }

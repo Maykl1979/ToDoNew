@@ -38,7 +38,7 @@ namespace ToDoNew.dao.impl
                         (long)sqlDataReader.GetValue(0),
                         (long)sqlDataReader.GetValue(1),
                         (string)sqlDataReader.GetValue(2),
-                        (string)sqlDataReader.GetValue(3),
+                        (int)sqlDataReader.GetValue(3),
                         (DateTime)sqlDataReader.GetValue(4),
                         (DateTime)sqlDataReader.GetValue(5)));
                 }
@@ -60,8 +60,8 @@ namespace ToDoNew.dao.impl
             sqlCommand.Parameters.Add("@user_id", System.Data.SqlDbType.BigInt).Value = task.user_id;
             sqlCommand.Parameters.Add("@name", System.Data.SqlDbType.BigInt).Value = task.name;
             sqlCommand.Parameters.Add("@status", System.Data.SqlDbType.BigInt).Value = task.status;
-            sqlCommand.Parameters.Add("@time_start", System.Data.SqlDbType.BigInt).Value = task.TimeStart;
-            sqlCommand.Parameters.Add("@time_stop", System.Data.SqlDbType.BigInt).Value = task.TimeStop;
+            sqlCommand.Parameters.Add("@time_start", System.Data.SqlDbType.DateTime).Value = task.TimeStart;
+            sqlCommand.Parameters.Add("@time_stop", System.Data.SqlDbType.DateTime).Value = task.TimeStop;
             try
             {
                 sqlCommand.ExecuteNonQuery();
