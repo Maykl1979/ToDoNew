@@ -38,7 +38,7 @@ namespace ToDoNew.dao.impl
                         (long)sqlDataReader.GetValue(0),
                         (long)sqlDataReader.GetValue(1),
                         (string)sqlDataReader.GetValue(2),
-                        (int)sqlDataReader.GetValue(3),
+                        (string)sqlDataReader.GetValue(3),
                         (DateTime)sqlDataReader.GetValue(4),
                         (DateTime)sqlDataReader.GetValue(5)));
                 }

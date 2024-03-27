@@ -11,7 +11,7 @@ namespace ToDoNew.entity
         private long Id;
         private long User_ID;
         private string Name;
-        private int Status;
+        private string Status;
         private DateTime Time_Start;
         private DateTime Time_Stop;
 
@@ -20,7 +20,7 @@ namespace ToDoNew.entity
 
         }
 
-        public TaskEntity(long Id, long User_ID, string Name, int Status, DateTime Time_Start, DateTime Time_Stop)
+        public TaskEntity(long Id, long User_ID, string Name, string Status, DateTime Time_Start, DateTime Time_Stop)
         {
             this.Id = Id;
             this.User_ID = User_ID;
@@ -44,7 +44,7 @@ namespace ToDoNew.entity
             set { this.Name = value; }
             get { return this.Name; }
         }
-        public int status
+        public string status
         {
             set { this.Status = value; }
             get { return this.Status; }
