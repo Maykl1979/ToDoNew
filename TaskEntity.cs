@@ -56,9 +56,9 @@ namespace ToDoNew
                 flowLayoutPanel1.Controls.Add(new CurrentTask(task.id, task.name, task.status, task.TimeStart, task.TimeStop));
                 MessageBox.Show("ОК");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message); 
+                MessageBox.Show(ex.Message);
             }
         }
     }

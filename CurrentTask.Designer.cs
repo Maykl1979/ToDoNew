@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             TaskName = new Label();
+            LabelTaskName = new Label();
             SuspendLayout();
             // 
             // TaskName
@@ -40,15 +41,24 @@
             TaskName.TabIndex = 1;
             TaskName.Text = "Название задачи";
             // 
+            // LabelTaskName
+            // 
+            LabelTaskName.AutoSize = true;
+            LabelTaskName.Location = new Point(118, 21);
+            LabelTaskName.Name = "LabelTaskName";
+            LabelTaskName.Size = new Size(38, 15);
+            LabelTaskName.TabIndex = 2;
+            LabelTaskName.Text = "label1";
+            // 
             // CurrentTask
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
+            Controls.Add(LabelTaskName);
             Controls.Add(TaskName);
             Name = "CurrentTask";
-            Size = new Size(171, 95);
-            //Click += CurrentTask_Click;
+            Size = new Size(410, 95);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -56,5 +66,6 @@
         #endregion
 
         private Label TaskName;
+        private Label LabelTaskName;
     }
 }

@@ -89,7 +89,6 @@
             // Status
             // 
             Status.FormattingEnabled = true;
-            Status.Items.AddRange(new object[] { "Новое", "В работе", "Завершено" });
             Status.Location = new Point(12, 73);
             Status.Name = "Status";
             Status.Size = new Size(200, 23);

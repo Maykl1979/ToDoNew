@@ -21,8 +21,9 @@ namespace ToDoNew
         {
             InitializeComponent();
             taskDao = new TaskDataBase();
+            LabelTaskName.Text = name;
         }
-                
-      
+
+
     }
 }

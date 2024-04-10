@@ -20,7 +20,11 @@ namespace ToDoNew.dao.impl
         public List<TaskEntity> FindTask(TaskEntity task)
         {
             sqlConnection.Open();
-            string sqlRequest = "SELECT * FROM Tasks WHERE user_id = @user_id";
+            string sqlRequest = "select Tasks.id, Tasks.user_id, Tasks.name, " +
+                 "Status.name AS status, tasks.time_start, tasks.time_stop " +
+                 "from Tasks " +
+                 "join Status on tasks.status_id = Status.id " +
+                 "where Tasks.user_id = @user_id";
             SqlCommand sqlCommand = new SqlCommand(sqlRequest, sqlConnection);
             sqlCommand.Parameters.Add("@user_id", System.Data.SqlDbType.VarChar).Value = task.user_id;
             try
@@ -34,6 +38,7 @@ namespace ToDoNew.dao.impl
                 }
                 while (sqlDataReader.Read())
                 {
+                    
                     tasks.Add(new TaskEntity(
                         (long)sqlDataReader.GetValue(0),
                         (long)sqlDataReader.GetValue(1),
