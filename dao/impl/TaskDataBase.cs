@@ -64,7 +64,7 @@ namespace ToDoNew.dao.impl
             SqlCommand sqlCommand = new SqlCommand(sqlRequest, sqlConnection);
             sqlCommand.Parameters.Add("@user_id", System.Data.SqlDbType.BigInt).Value = task.user_id;
             sqlCommand.Parameters.Add("@name", System.Data.SqlDbType.BigInt).Value = task.name;
-            sqlCommand.Parameters.Add("@status", System.Data.SqlDbType.BigInt).Value = task.status;
+            sqlCommand.Parameters.Add("@status", System.Data.SqlDbType.BigInt).Value = Convert.ToUInt64(task.status);
             sqlCommand.Parameters.Add("@time_start", System.Data.SqlDbType.DateTime).Value = task.TimeStart;
             sqlCommand.Parameters.Add("@time_stop", System.Data.SqlDbType.DateTime).Value = task.TimeStop;
             try
